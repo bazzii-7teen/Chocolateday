@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For Sabaina 🍫</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --text-primary: #4a4a4a;
+            --text-secondary: #6b6b6b;
+            --accent-pink: #ff6b9d;
+            --accent-purple: #c44569;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #f093fb 100%);
+            background-attachment: fixed;
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.3;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 60px;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: var(--glass-shadow);
+            padding: 32px 24px;
+            width: 100%;
+            margin: 12px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:active {
+            transform: scale(0.98);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            text-align: center;
+            font-weight: 400;
+            margin-top: 8px;
+        }
+
+        .small-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-top: 12px;
+            font-style: italic;
+        }
+
+        .welcome-content {
+            text-align: center;
+        }
+
+        .chocolate-emoji {
+            font-size: 4rem;
+            display: block;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* NEW: Real chocolate photos */
+        .choco-showcase {
+            display: grid;
+            gap: 16px;
+            width: 100%;
+        }
+
+        .choco-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 220px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        .choco-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .choco-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .choco-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: white;
+        }
+
+        .choco-overlay h3 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .choco-overlay p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Pinterest-style placeholder */
+        .pinterest-placeholder {
+            background: linear-gradient(135deg, #e60023, #ff4d6d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .pinterest-placeholder span {
+            font-size: 3rem;
+            margin-bottom: 8px;
+        }
+
+        .pinterest-placeholder p {
+            font-size: 0.9rem;
+        }
+
+        .gifts-row {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 8px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            width: 100%;
+        }
+
+        .gifts-row::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gift-card {
+            min-width: 140px;
+            text-align: center;
+            padding: 24px 16px;
+        }
+
+        .gift-emoji {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .gift-card p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .hint-text {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            margin-top: 16px;
+            font-style: italic;
+        }
+
+        .memory-lane {
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        .memory-card {
+            margin: 16px 0;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .memory-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #ff6b9d, #c44569);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .memory-date {
+            font-size: 0.75rem;
+            color: var(--accent-purple);
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .memory-text {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .love-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            width: 100%;
+        }
+
+        .love-item {
+            text-align: center;
+            padding: 24px 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .love-item:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.35);
+        }
+
+        .love-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .love-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .notice-text {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            margin-top: 24px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            padding: 0 20px;
+        }
+
+        /* NEW: Music Player Section */
+        .music-player {
+            width: 100%;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .album-art {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #2d132c, #801336);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .vinyl {
+            width: 150px;
+            height: 150px;
+            background: repeating-radial-gradient(
+                circle at center,
+                #1a1a1a 0px,
+                #1a1a1a 2px,
+                #333 3px,
+                #333 4px
+            );
+            border-radius: 50%;
+            border: 8px solid #000;
+            position: relative;
+            animation: spin 3s linear infinite paused;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .vinyl.playing {
+            animation-play-state: running;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .vinyl-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: #c44569;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .play-btn {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+            background: white;
+        }
+
+        .play-btn:active {
+            transform: scale(0.95);
+        }
+
+        .song-info {
+            padding: 24px;
+            text-align: center;
+        }
+
+        .song-title {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .song-artist {
+            color: #b8b8b8;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .lyrics {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            font-style: italic;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .lyrics .highlight {
+            color: #ff6b9d;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            margin: 16px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #ff6b9d;
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.75rem;
+        }
+        .choice-container {
+            width: 100%;
+        }
+
+        .choice-text {
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .choices {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .choice-btn {
+            background: rgba(255,255,255,0.3);
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 16px;
+            padding: 20px;
+            font-size: 1.1rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            backdrop-filter: blur(4px);
+        }
+
+        .choice-btn:hover, .choice-btn:active {
+            background: rgba(255,255,255,0.5);
+            transform: scale(1.02);
+        }
+
+        .choice-btn.selected {
+            background: rgba(255,255,255,0.8);
+            color: var(--accent-purple);
+            font-weight: 600;
+        }
+
+        .response-text {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 1.2rem;
+            color: white;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+            font-weight: 500;
+        }
+
+        .response-text.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .countdown-box {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: rgba(255,255,255,0.3);
+            border-radius: 16px;
+            padding: 20px 16px;
+            text-align: center;
+            min-width: 70px;
+            backdrop-filter: blur(10px);
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            display: block;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            margin-top: 8px;
+            letter-spacing: 1px;
+        }
+
+        .letter-card {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--text-primary);
+            padding: 32px 24px;
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid rgba(196, 69, 105, 0.2);
+        }
+
+        .letter-title {
+            font-size: 1.4rem;
+            color: var(--accent-purple);
+            font-weight: 700;
+        }
+
+        .letter-body {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: var(--text-primary);
+        }
+
+        .letter-body p {
+            margin-bottom: 16px;
+        }
+
+        .letter-signature {
+            text-align: right;
+            margin-top: 24px;
+            font-style: italic;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .ending-card {
+            text-align: center;
+            padding: 40px 32px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+        }
+
+        .ending-emoji {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: pulse-heart 2s infinite;
+        }
+
+        @keyframes pulse-heart {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .ending-text {
+            font-size: 1.4rem;
+            color: white;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .ending-subtext {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .scroll-hint {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.9);
+            font-size: 0.85rem;
+            animation: pulse 2s infinite;
+            z-index: 10;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .scroll-hint.visible {
+            opacity: 1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; transform: translateX(-50%) translateY(0); }
+            50% { opacity: 1; transform: translateX(-50%) translateY(5px); }
+        }
+
+        @media (min-width: 480px) {
+            h1 { font-size: 2.5rem; }
+            .choco-showcase { grid-template-columns: 1fr 1fr; }
+            .choices { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+            .choice-btn { min-width: 140px; }
+        }
+
+        @media (hover: none) {
+            .glass-card:active { transform: scale(0.96); }
+            .love-item:active { transform: scale(0.95); }
+        }
+
+        /* YouTube Music Player */
+        .music-section {
+            width: 100%;
+        }
+
+        .youtube-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+
+        .youtube-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .song-lyrics {
+            background: rgba(0,0,0,0.4);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .song-lyrics p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .song-lyrics .highlight {
+            color: #ff6b9d;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .play-hint {
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        
+        <!-- Section 1: Welcome -->
+        <section id="welcome" class="visible">
+            <div class="glass-card welcome-content">
+                <span class="chocolate-emoji">🍫</span>
+                <h1>Chocolate Day</h1>
+                <p class="subtitle">I made this for you, Sabaina</p>
+                <p class="small-text">Just some things I know you love</p>
+                <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3);">
+                    <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem;">Keep scrolling... there's more 💝</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Real Chocolate Photos -->
+        <section id="chocolates">
+            <h2>These reminded me of you</h2>
+            <div class="choco-showcase">
+                <div class="choco-item">
+                    <img src="https://i.postimg.cc/3x5GKPt9/4d376534d65fbccc502f29799727f265.jpg" alt="Dark chocolate">
+                    <div class="choco-overlay">
+                        <h3>Dark & Rich</h3>
+                        <p>Deep, just like my feelings</p>
+                    </div>
+                </div>
+                <div class="choco-item">
+                    <img src="https://i.postimg.cc/Y2PgP4gz/68bdf34356f2e41e4a4fdf399ab92b17.jpg" alt="Chocolate dessert">
+                    <div class="choco-overlay">
+                        <h3>Sweet Moments</h3>
+                        <p>Every bite with you</p>
+                    </div>
+                </div>
+                <div class="choco-item">
+                    <img src="https://i.postimg.cc/Y9qg5Ybs/a1f4250a0ca1eed167fc6fc4d3df1609.jpg" alt="Hot chocolate">
+                    <div class="choco-overlay">
+                        <h3>Warm & Cozy</h3>
+                        <p>Like your hugs</p>
+                    </div>
+                </div>
+                <div class="choco-item">
+                    <img src="https://i.postimg.cc/nzR7prWQ/981150249db97af90315de514b389537.jpg" alt="Chocolate box">
+                    <div class="choco-overlay">
+                        <h3>Special Box</h3>
+                        <p>For a special girl</p>
+                    </div>
+                </div>
+                <div class="choco-item" style="grid-column: 1 / -1;">
+                    <img src="https://i.postimg.cc/3wh2ZPpk/d67eb974248825eeb7e5059f73a4a8e4.jpg" alt="Bazzi's favorite">
+                    <div class="choco-overlay">
+                        <h3>My Favorite</h3>
+                        <p>Because you deserve the best - From Bazzi</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: YouTube Music Player -->
+        <section id="music" class="music-section">
+            <h2>Play this while you scroll</h2>
+            <div class="glass-card" style="padding: 20px; background: rgba(0,0,0,0.3);">
+                <div class="youtube-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/nyuo9-OjNNg?enablejsapi=1" 
+                        title="Arctic Monkeys - I Wanna Be Yours"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="song-lyrics">
+                    <p>
+                        "Let me be your coffee pot<br>
+                        You call the shots babe<br>
+                        <span class="highlight">I just wanna be yours"</span>
+                    </p>
+                </div>
+                <p class="play-hint">🔊 Tap the video to play - Bazzi</p>
+            </div>
+        </section>
+        <!-- Section 4: Little Gifts -->
+        <section id="gifts">
+            <h2>Little gifts</h2>
+            <div class="gifts-row">
+                <div class="glass-card gift-card">
+                    <span class="gift-emoji">🌸</span>
+                    <h3>Flowers</h3>
+                    <p>For your smile</p>
+                </div>
+                <div class="glass-card gift-card">
+                    <span class="gift-emoji">🧸</span>
+                    <h3>Teddy</h3>
+                    <p>For late nights</p>
+                </div>
+                <div class="glass-card gift-card">
+                    <span class="gift-emoji">💍</span>
+                    <h3>Something...</h3>
+                    <p>Not today... but one day</p>
+                </div>
+                <div class="glass-card gift-card">
+                    <span class="gift-emoji">✨</span>
+                    <h3>Stars</h3>
+                    <p>Because you shine</p>
+                </div>
+            </div>
+            <p class="hint-text">Saving some for later 💭</p>
+        </section>
+
+        <!-- Section 5: Memory Lane -->
+        <section id="memories">
+            <h2>Little memories</h2>
+            <div class="memory-lane">
+                <div class="glass-card memory-card">
+                    <div class="memory-date">First Meeting</div>
+                    <div class="memory-text">That day I didn't know you'd become this important to me...</div>
+                </div>
+                <div class="glass-card memory-card">
+                    <div class="memory-date">Random Tuesday</div>
+                    <div class="memory-text">When you laughed at my stupid joke and made my whole week.</div>
+                </div>
+                <div class="glass-card memory-card">
+                    <div class="memory-date">Quiet Moments</div>
+                    <div class="memory-text">Just sitting together, doing nothing, meaning everything.</div>
+                </div>
+                <div class="glass-card memory-card">
+                    <div class="memory-date">Today</div>
+                    <div class="memory-text">Making this for you at midnight because you deserve something special. - Bazzi</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Things You Love -->
+        <section id="things-you-love">
+            <h2>Things you love</h2>
+            <div class="love-grid">
+                <div class="glass-card love-item" onclick="pulse(this)">
+                    <span class="love-emoji">🍫</span>
+                    <span class="love-label">Chocolate</span>
+                </div>
+                <div class="glass-card love-item" onclick="pulse(this)">
+                    <span class="love-emoji">🌸</span>
+                    <span class="love-label">Flowers</span>
+                </div>
+                <div class="glass-card love-item" onclick="pulse(this)">
+                    <span class="love-emoji">🌙</span>
+                    <span class="love-label">Late talks</span>
+                </div>
+                <div class="glass-card love-item" onclick="pulse(this)">
+                    <span class="love-emoji">🎀</span>
+                    <span class="love-label">Cute surprises</span>
+                </div>
+                <div class="glass-card love-item" onclick="pulse(this)">
+                    <span class="love-emoji">☕</span>
+                    <span class="love-label">Coffee</span>
+                </div>
+                <div class="glass-card love-item" onclick="pulse(this)">
+                    <span class="love-emoji">🎵</span>
+                    <span class="love-label">Music</span>
+                </div>
+            </div>
+            <p class="notice-text">I notice these things<br>even if I don't always say it</p>
+        </section>
+
+        <!-- Section 7: Countdown -->
+        <section id="countdown">
+            <h2>Counting down to...</h2>
+            <div class="glass-card" style="text-align: center;">
+                <p style="color: rgba(255,255,255,0.9); margin-bottom: 16px; font-size: 1rem;">Next Chocolate Day & seeing you again 💕</p>
+                <div class="countdown-box">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Mins</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Secs</span>
+                    </div>
+                </div>
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-top: 16px;">
+                    Until February 9, 2026 🗓️<br>
+                    <span style="font-size: 0.75rem;">(Or until you text me back)</span>
+                </p>
+            </div>
+        </section>
+        <!-- Section 8: Pick One -->
+        <section id="pick-one">
+            <div class="choice-container">
+                <p class="choice-text">Pick one for today</p>
+                <div class="choices">
+                    <button class="choice-btn" onclick="selectChoice(this, 'Chocolate it is 🍫 I\'ll get you your favorite!')">
+                        <span>🍫</span> Chocolate
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'Flowers coming up 🌸 Which ones do you want?')">
+                        <span>🌸</span> Flowers
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'I was hoping you\'d say that 🤍 When can I see you?')">
+                        <span>🤍</span> Me
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'All of it? Greedy 😏 But okay, for you, anything.')">
+                        <span>🎁</span> All Three
+                    </button>
+                </div>
+                <p class="response-text" id="response"></p>
+            </div>
+        </section>
+
+        <!-- Section 9: The Letter -->
+        <section id="letter">
+            <h2>A small letter</h2>
+            <div class="letter-container">
+                <div class="glass-card letter-card">
+                    <div class="letter-header">
+                        <div class="letter-title">To Sabaina 💌</div>
+                    </div>
+                    <div class="letter-body">
+                        <p>I don't say it enough, but I think about you more than you know.</p>
+                        <p>This website is small, and maybe a bit silly, but I made it at midnight while thinking about what makes you smile.</p>
+                        <p>You're the kind of person who deserves handmade things, even if they're imperfect. Especially because they're imperfect.</p>
+                        <p>Happy Chocolate Day. Save some real chocolate for me.</p>
+                    </div>
+                    <div class="letter-signature">
+                        — Bazzi<br>
+                        <small style="color: #999;">(The guy who made this)</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Ending -->
+        <section id="ending">
+            <div class="glass-card ending-card">
+                <span class="ending-emoji">💝</span>
+                <p class="ending-text">Happy Chocolate Day, Sabaina<br>
+                This is small<br>
+                but it's from me</p>
+                <p class="ending-subtext">And I mean every pixel of it</p>
+                <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+                    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.9);">
+                        P.S. - Text me when you see this<br>
+                        I want to know if you smiled 😊
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            Made with nervous hands at midnight.<br>
+            For you, always. - Bazzi
+        </footer>
+
+    </div>
+
+    <div class="scroll-hint" id="scrollHint">Scroll down ↓</div>
+    <script>
+        // Generate floating hearts
+        function createHearts() {
+            const container = document.getElementById('hearts');
+            const heartEmojis = ['💕', '💖', '💗', '💓', '💝', '💘', '💞'];
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 5 + 8) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+                container.appendChild(heart);
+            }
+        }
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Choice selection interaction
+        function selectChoice(btn, message) {
+            document.querySelectorAll('.choice-btn').forEach(b => {
+                b.classList.remove('selected');
+                b.style.opacity = '0.6';
+            });
+            
+            btn.classList.add('selected');
+            btn.style.opacity = '1';
+            
+            const response = document.getElementById('response');
+            response.textContent = message;
+            response.classList.add('show');
+            
+            createMiniHearts(btn);
+        }
+
+        // Pulse animation for love items
+        function pulse(element) {
+            element.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                element.style.transform = 'scale(1)';
+            }, 150);
+            
+            const rect = element.getBoundingClientRect();
+            const heart = document.createElement('div');
+            heart.textContent = '💖';
+            heart.style.position = 'fixed';
+            heart.style.left = rect.left + rect.width/2 + 'px';
+            heart.style.top = rect.top + 'px';
+            heart.style.fontSize = '24px';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '1000';
+            heart.style.animation = 'float 1s ease-out forwards';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 1000);
+        }
+
+        // Mini hearts celebration
+        function createMiniHearts(element) {
+            const rect = element.getBoundingClientRect();
+            const colors = ['💕', '💖', '💗', '💝'];
+            
+            for (let i = 0; i < 6; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.textContent = colors[Math.floor(Math.random() * colors.length)];
+                    heart.style.position = 'fixed';
+                    heart.style.left = (rect.left + rect.width/2 + (Math.random() * 40 - 20)) + 'px';
+                    heart.style.top = (rect.top + (Math.random() * 20)) + 'px';
+                    heart.style.fontSize = '20px';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.zIndex = '1000';
+                    heart.style.animation = 'float 1.5s ease-out forwards';
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 1500);
+                }, i * 100);
+            }
+        }
+
+        // WORKING Countdown to next Chocolate Day (Feb 9, 2026)
+        function updateCountdown() {
+            const now = new Date();
+            let targetYear = now.getFullYear();
+            
+            // If Chocolate Day passed this year, go to next year
+            const currentYearChocolateDay = new Date(`February 9, ${targetYear} 00:00:00`);
+            if (now > currentYearChocolateDay) {
+                targetYear++;
+            }
+            
+            const chocolateDay = new Date(`February 9, ${targetYear} 00:00:00`);
+            const diff = chocolateDay - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Scroll hint visibility
+        let lastScroll = 0;
+        const scrollHint = document.getElementById('scrollHint');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll < 100) {
+                scrollHint.classList.add('visible');
+            } else {
+                scrollHint.classList.remove('visible');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Initialize
+        createHearts();
+        
+        // Show scroll hint after 2 seconds
+        setTimeout(() => {
+            if (window.pageYOffset < 100) {
+                scrollHint.classList.add('visible');
+            }
+        }, 2000);
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.body.style.backgroundPositionY = (scrolled * 0.3) + 'px';
+        });
+
+        // Double tap to create hearts anywhere
+        let lastTap = 0;
+        document.addEventListener('touchend', (e) => {
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+            if (tapLength < 500 && tapLength > 0) {
+                createMiniHearts(e.target);
+            }
+            lastTap = currentTime;
+        });
+    </script>
+</body>
+</html>
